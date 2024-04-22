@@ -44,7 +44,11 @@ def redirectPage():
 
 @app.route('/index')
 def index():
-    return 'Here is the index page'
+    current_user = get_current_user()
+    
+    user_name = current_user.current_user()['display_name']
+    
+    return f'Welcome to index, {user_name}'
 
 
 @app.route('/getTracks')
